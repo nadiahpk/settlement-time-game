@@ -1,3 +1,8 @@
+Reference
+=========
+
+Schmidt, K.A., Johansson, J. Kristensen, N.P. and Jonzen, N.  Consequences of information use in breeding habitat selection on the evolution of settlement time. Paper in preparation.
+
 
 Quick Start
 ===========
@@ -20,3 +25,5 @@ distribution (from Agner Fog http://www.anger.org) and the file
 wnhg8.cpp to generate wnhg8.oct. You can create your own by running
 
 $ mkoctfile wnhg8.cpp
+
+
