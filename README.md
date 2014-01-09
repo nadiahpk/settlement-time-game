@@ -11,6 +11,7 @@ If you have git:
     $ cd settlement-time-game
 
 If you don't have git, just download and unpack the latest zip file:
+
 [https://github.com/nadiahpk/settlement-time-game/archive/master.zip](https://github.com/nadiahpk/settlement-time-game/archive/master.zip)
 
 In Octave
@@ -25,9 +26,9 @@ Should give the result
 
 # The Wallenius solver
 
-In the subdirectory wnhgsolver is C++ code for the Wallenius
+In the subdirectory ```wnhgsolver``` is C++ code for the Wallenius
 distribution (from [Agner Fog](http://www.anger.org)) and the file
-wnhg8.cpp to generate wnhg8.oct. You can create your own by running
+```wnhg8.cpp``` to generate ```wnhg8.oct```. You can create your own by running
 
     $ mkoctfile wnhg8.cpp
 
