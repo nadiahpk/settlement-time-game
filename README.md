@@ -17,7 +17,7 @@ If you don't have git, just download and unpack the latest zip file:
 In Octave
 
     > params;
-    > [mu,fval] = [y,fval]=solveEss(.5,p)
+    > [y,fval]=solveEss(.5,p)
 
 Should give the result
 
