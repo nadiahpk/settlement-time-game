@@ -7,7 +7,7 @@ function N1 = calcN1(N0,y,p);
 
 % Find the expected number of good territories selected
 phi = calcphi(N0,y,p); % Probability of being faced with g territories remaining
-PG_gky = EgivenG(N0,y,p); % Probability of acquiring a good territory give g territories remaining
+PG_gky = calcu(N0,y,p); % Probability of acquiring a good territory give g territories remaining
 for K=1:N0
     PG_ky(K)=phi(1:end,K)'*PG_gky(1:end,K);
 end

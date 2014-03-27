@@ -1,4 +1,4 @@
-function PG_gk = EgivenG(N,y,p);
+function PG_gk = calcu(N,y,p);
 
 [od,WG,WB] = oddsratio(p,y);
 

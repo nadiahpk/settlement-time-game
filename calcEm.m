@@ -31,14 +31,14 @@ function [PG_y,PG_z,Pk_yz] = calcEm(N,y,z,p)
 
 % Probability of resident acquiring a good territory given rank K
 phi = calcphi(N,y,p); % Probability of being faced with g territories remaining
-PG_gky = EgivenG(N,y,p); % Probability of acquiring a good territory give g territories remaining
+PG_gky = calcu(N,y,p); % Probability of acquiring a good territory give g territories remaining
 for K=1:N
     PG_ky(K)=phi(1:end,K)'*PG_gky(1:end,K);
 end
 
 % Find the probability that a mutant bird acquires a good territory
 % assuming that all the others play the resident strategy
-PG_gkz = EgivenG(N,z,p);
+PG_gkz = calcu(N,z,p);
 for K=1:N
     PG_kz(K)=phi(1:end,K)'*PG_gkz(1:end,K);
 end
