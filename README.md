@@ -28,7 +28,8 @@ Should give the result
 
 In the subdirectory ```wnhgsolver``` is C++ code for the Wallenius
 distribution (from [Agner Fog](http://www.anger.org)) and the file
-```wnhg8.cpp``` to generate ```wnhg8.oct```. You can create your own by running
+```wnhg8.cpp``` to generate ```wnhg8.oct```. You can create your
+own by running
 
     $ mkoctfile wnhg8.cpp
 

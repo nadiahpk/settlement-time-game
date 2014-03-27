@@ -19,7 +19,7 @@ else
     else
         % Probability of getting a good territory
         [PGr1,PGm1,PKm1] = calcEm(N,mu,mup1,p);
-        [PGr2,PGm2,PKm2] = calcEm(N,mu,mup2,p); 
+        [PGr2,PGm2,PKm2] = calcEm(N,mu,mup2,p);
         % Probability of getting a bad territory for residents
         PBr1 = p.TB/N;
         PBr2 = p.TB/N;
@@ -40,7 +40,7 @@ else
 
     del1 = Wm1-Wr1;
     del2 = Wm2-Wr2;
-    
+
     if N > 1
         res = (del2-del1)/del; % A bit strange but has better robustness
     else

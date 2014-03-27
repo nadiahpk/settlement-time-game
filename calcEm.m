@@ -5,13 +5,13 @@ function [PG_y,PG_z,Pk_yz] = calcEm(N,y,z,p)
 % the resident and the mutant will acquire a good territory PG_y and
 % PG_z. It also finds the probability of a mutant acquirking rank k.
 
-% Pg_ky 
+% Pg_ky
 %   $P_g(k,y)$, the probability that a bird of rank k in a population
 %   with strategy y is faced with g good territories remaining
-% PG_gky 
+% PG_gky
 %   $P_G(g,k,y)$, the probability that a resident of rank k faced with
 %   g good territories chooses a good territory
-% PG_gkz 
+% PG_gkz
 %   $P_G(g,k,z)$, the probability that a mutant of rank k faced with
 %   g good territories chooses a good territory
 % PG_ky
@@ -20,9 +20,9 @@ function [PG_y,PG_z,Pk_yz] = calcEm(N,y,z,p)
 % PG_kz
 %   %P_G(k,z)$, the probability that a mutant of rank k will choose
 %   a good territory
-% Pk_y 
+% Pk_y
 %   $P_k(y)$, the probability of a resident having rank k
-% Pk_yz 
+% Pk_yz
 %   $P_k(y,z)$, the probability of a mutant having rank k
 
 

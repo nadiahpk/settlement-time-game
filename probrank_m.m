@@ -27,7 +27,7 @@ if z < y
         deltax = overlap/(resol);
         xV = y+deltax/2:deltax:z+v-deltax/2; % Use midpoints as values right on y and y+v are 0
         deltax=xV(2)-xV(1);
-        for k = 0:n; 
+        for k = 0:n;
             ind = k+1;
             nCk = bincoeff(n,k);
             PkyxV = [];
@@ -49,9 +49,9 @@ elseif z > y
     else
         Pkyz(n+1) = (z-y)/v; % Probability that mutant settles after y+v
         deltax = overlap/(resol);
-        xV = z+deltax/2:deltax:y+v-deltax/2; 
+        xV = z+deltax/2:deltax:y+v-deltax/2;
         deltax=xV(2)-xV(1);
-        for k = 0:n; 
+        for k = 0:n;
             ind = k+1;
             nCk = bincoeff(n,k);
             PkyxV = [];
