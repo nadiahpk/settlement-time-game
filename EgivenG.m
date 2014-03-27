@@ -6,7 +6,7 @@ PG_gk=zeros(p.TG,N);
 % Rows correspond to the possible number of good territories remaining
 % Columns correspond to the rank of the bird K, and to the number
 % of birds already settled K-1
-% Entries are the probability that bird of rank K will pick 
+% Entries are the probability that bird of rank K will pick
 % one good territory from the
 % urn GIVEN THAT there are that many good territories left
 for K = 1:min(N,p.TG+p.TB)

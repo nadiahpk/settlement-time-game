@@ -15,17 +15,17 @@ phi = zeros(p.TG,N);
 % Entries are the probability that bird of rank K is faced with that
 % many good territories remaining
 
-% If the number of birds already settled exceeds the total number 
+% If the number of birds already settled exceeds the total number
 % of territories, the probability of the kth bird finding any territory is 0
 % hence we don't need to do the calcs for N > p.TG+p.TB
 for K = 1:min(N,p.TG+p.TB)
 
-    % G is the number of good territories left. 
+    % G is the number of good territories left.
     % It is dependent upon the number already settled.
     s = K-1;
 
     % The minimum G value is when all settled took good territories,
-    % so TG - no. already settled. 
+    % so TG - no. already settled.
     gmin= max(0,p.TG - s);
 
     % The max G value is when all settled took bad territories, so

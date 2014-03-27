@@ -28,6 +28,16 @@ function Pkyz = calcPkyz(y,z,v,n);
 %
 % Pkyz: A column vector of probabilities that the mutant will be preceded by k residents.
 
+% Pky is $P_k(y)$
+% Pkyz is $P_k(y,z)$
+% Pkyx is $P_k(y,x_i)$
+
+% DEBUGGING
+%v = 1;
+%n = 5;
+%z = 0.3;
+%y = 0;
+% /DEBUGGING
 
 resol = 100;
 if z < y

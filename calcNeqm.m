@@ -1,7 +1,7 @@
 function Ns = calcNeqm(y,p);
 
 % This function calculates the equilibrium N.
-% It does so using a bisection method, but it also rounds the 
+% It does so using a bisection method, but it also rounds the
 % value to the nearest whole number of birds.
 
 % The highest Ns scenario is Ns > p.TB + p.TG, in which case
@@ -17,13 +17,13 @@ Nsl1 = floor(calcN1(Nsl,y,p));
 Nsh1 = (calcN1(Nsh,y,p));
 Nsm1 = floor(calcN1(Nsm,y,p));
 
-% Check initial guesses 
+% Check initial guesses
 flag_done = 0;
 
 % Coding like a gumby for now - tidy later ***
 if (Nsl1 < Nsl);
     % Verify that the system can sustain at least one
-    % bird, so if N0 = Nsl, N1 > N0 
+    % bird, so if N0 = Nsl, N1 > N0
     %disp('Cannot sustain 1 bird');
     flag_done = 1;
     Ns = 0;
@@ -46,7 +46,7 @@ if (round(Nsh1) > Nsh);
 end
 
 if flag_done == 0
-    while Nsl < Nsm && Nsh > Nsm; 
+    while Nsl < Nsm && Nsh > Nsm;
         if Nsm1 >= Nsm;
             Nsl = Nsm;
             Nsl1 = Nsm1;
