@@ -1,4 +1,4 @@
-function Pg_ky = calcP_GK(N,y,p)
+function phi = calcphi(N,y,p)
 
 % Calculate the probability that G territories remain given a rank of
 % K and a y of OTHER residents
@@ -7,7 +7,7 @@ od = oddsratio(p,y);
 %WG=oddsratio(p,mu)/(oddsratio(p,mu)+1);
 %WB=1-WG;
 
-Pg_ky = zeros(p.TG,N); 
+phi = zeros(p.TG,N); 
 % Rows correspond to the possible number of good territories
 % remaining, including 0
 % Columns correspond to the rank of the bird K, and to the number
@@ -37,7 +37,7 @@ for K = 1:min(N,p.TG+p.TB)
     %str = [num2str(K),':',num2str(gmin),',',num2str(gmax)];
     %disp(str);
     for g=gmin:gmax
-        Pg_ky(g+1,K)=wnhg8(p.TG-g,K-1,p.TG,p.TB,od);
+        phi(g+1,K)=wnhg8(p.TG-g,K-1,p.TG,p.TB,od);
         % +1 index because row 1 corresponds to g=0 
     end
 end
