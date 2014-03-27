@@ -13,7 +13,7 @@ if n == 0;
     Pkyz = 1; % $P_k(y,z)$
 else
     % Note that n is the number of residents, not counting the mutant
-    Pkyz = probrank_m(y,z,v,n); 
+    Pkyz = calcPkyz(y,z,v,n); 
     Pky = zeros(n+1,1); % Store values here
     for K = 1:n+1
         % The probability of a resident having any of the other n

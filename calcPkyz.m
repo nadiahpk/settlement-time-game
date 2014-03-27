@@ -1,18 +1,33 @@
-function Pkyz = probrank_m(y,z,v,n);
+function Pkyz = calcPkyz(y,z,v,n);
 
-% Calculate the probability that the mutant will be preceded by k
-% residents. Note that n is the number of OTHER residents (i.e. N-1)
+% -- Pkyz = calcPkyz(y,z,v,n)
+%
+% The purpose of this function is to calculate Pkyz the probability
+% that a mutant will be preceded by k residents. Pkyz is
+% returned as a column vector, with entries equal to the
+% probability and indices equal to -1 plus the number of
+% residents that preceded the mutant.
+%
+% The calculation method is a little different to that
+% presented in the appendix of the paper, in that the
+% arrival distribution and the integral is taken from 
+% e.g. y -> y+v, rather than y-v/2 -> y+v/2. However the two
+% are equivalent.
+%
+% INPUTS
+% 
+% y: The resident strategy settling time
+%
+% z: The mutant strategy settling time
+%
+% v: Width of the arrival distribution
+%
+% n: The number of OTHER residents, not counting the mutant (i.e. N-1)
+%
+% OUTPUTS
+%
+% Pkyz: A column vector of probabilities that the mutant will be preceded by k residents.
 
-% Pky is $P_k(y)$
-% Pkyz is $P_k(y,z)$
-% Pkyx is $P_k(y,x_i)$
-
-% DEBUGGING
-%v = 1;
-%n = 5;
-%z = 0.3;
-%y = 0;
-% /DEBUGGING
 
 resol = 100;
 if z < y
@@ -27,16 +42,16 @@ if z < y
         deltax = overlap/(resol);
         xV = y+deltax/2:deltax:z+v-deltax/2; % Use midpoints as values right on y and y+v are 0
         deltax=xV(2)-xV(1);
-        for k = 0:n; 
+        for k = 0:n; % Note that "k" here is the number of residents that have arrived before, not the rank of our target bird arriving at xi
             ind = k+1;
             nCk = bincoeff(n,k);
-            PkyxV = [];
+            psixV = [];
             for x = xV;
                 % Find probability that k residents have arrived before x
-                Pkyx = nCk*((x-y)/v)^k*(1-(x-y)/v)^(n-k);
-                PkyxV = [PkyxV;Pkyx];
+                psix = nCk*((x-y)/v)^k*(1-(x-y)/v)^(n-k);
+                psixV = [psixV;psix];
             end
-            Pkyz(ind) = Pkyz(ind)+(deltax/v)*sum(PkyxV);
+            Pkyz(ind) = Pkyz(ind)+(deltax/v)*sum(psixV);
         end
     end
 elseif z > y
@@ -54,13 +69,13 @@ elseif z > y
         for k = 0:n; 
             ind = k+1;
             nCk = bincoeff(n,k);
-            PkyxV = [];
+            psixV = [];
             for x = xV;
                 % Find probability that k residents have arrived before x
-                Pkyx = nCk*((x-y)/v)^k*(1-(x-y)/v)^(n-k);
-                PkyxV = [PkyxV;Pkyx];
+                psix = nCk*((x-y)/v)^k*(1-(x-y)/v)^(n-k);
+                psixV = [psixV;psix];
             end
-            Pkyz(ind) = Pkyz(ind)+(deltax/v)*sum(PkyxV);
+            Pkyz(ind) = Pkyz(ind)+(deltax/v)*sum(psixV);
         end
     end
 else % Mutant has the same strategy as resident
