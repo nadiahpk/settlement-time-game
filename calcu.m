@@ -1,14 +1,32 @@
-function PG_gk = calcu(N,y,p);
+function u = calcu(N,y,p);
+
+% -- u = calcu(N,y,p);
+%
+% The purpose of this function is to calculate u, a matrix
+% of u_{g,k} values, which is the probability of choosing a
+% good territory given the rank k of the bird of interest, g
+% territories remaining, and a settling time of y for THIS
+% bird.
+%
+% INPUTS
+%
+% N: Number of individuals
+%
+% y: Settling time strategy
+%
+% p: Dictionary of parameters
+%
+% OUTPUTS
+% 
+% phi: Rows indices correspond to the possible number of
+% good territories taken, including 0. Column indices
+% minus 1 correspond to the rank of the bird K. Entries are
+% the probability that bird of rank K faced with that
+% many good territories taken will itself choose a good
+% territory.
 
 [od,WG,WB] = oddsratio(p,y);
-
-PG_gk=zeros(p.TG,N);
-% Rows correspond to the possible number of good territories remaining
-% Columns correspond to the rank of the bird K, and to the number
-% of birds already settled K-1
-% Entries are the probability that bird of rank K will pick
-% one good territory from the
-% urn GIVEN THAT there are that many good territories left
+u=zeros(p.TG,N);
 for K = 1:min(N,p.TG+p.TB)
 
     % Reasoning the same as previous loop
@@ -25,11 +43,8 @@ for K = 1:min(N,p.TG+p.TB)
         btaken = s-gtaken;
         bfree = p.TB-btaken;
 
-        % Debugging lines
-        %str = [num2str(K),':',num2str(gfree),',',num2str(bfree)];
-        %disp(str)
-
         g_ind = gfree+1; % Remember first row is for gfree = 0
-        PG_gk(g_ind,K)=WG*gfree/(WG*gfree+WB*bfree);
+        u(g_ind,K)=WG*gfree/(WG*gfree+WB*bfree);
     end
 end
+u = flipud(u); % Changes indices from free to taken

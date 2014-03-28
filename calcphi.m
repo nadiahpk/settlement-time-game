@@ -3,10 +3,10 @@ function phi = calcphi(N,y,p)
 % -- phi = calcphi(N,y,p)
 %
 % The purpose of this function is to calculate phi, the
-% probability of g territories remaining given a rank
-% of k of the bird of interest and a settling time y of
-% other residents. If you want it in terms of territories
-% taken, use flipud(phi).
+% probability of g territories being taken given a rank
+% k of the bird of interest and a settling time y of
+% other residents. (If you want it in terms of territories
+% remaining, use flipud(phi).)
 %
 % INPUTS
 %
@@ -19,10 +19,10 @@ function phi = calcphi(N,y,p)
 % OUTPUTS
 % 
 % phi: Rows indices correspond to the possible number of
-% good territories remaining, including 0. Column indices
+% good territories taken, including 0. Column indices
 % minus 1 correspond to the rank of the bird K. Entries are
 % the probability that bird of rank K is faced with that
-% many good territories remaining.
+% many good territories taken.
 
 od = oddsratio(p,y);
 phi = zeros(p.TG,N); 
@@ -50,3 +50,4 @@ for K = 1:min(N,p.TG+p.TB)
         % +1 index because row 1 corresponds to g=0 
     end
 end
+phi = flipud(phi); % to match new appendix
