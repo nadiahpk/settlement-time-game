@@ -3,7 +3,7 @@ function N1 = calcN1(N0,y,p);
 % Calculate the number of birds at time t+1 given the number of birds
 % at time t
 
-%E_good = calcE(N0,y,p);
+%E_good = calce(N0,y,p);
 
 % Find the expected number of good territories selected
 phi = calcphi(N0,y,p); % Probability of being faced with g territories remaining
