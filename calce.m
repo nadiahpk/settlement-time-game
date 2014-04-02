@@ -58,8 +58,17 @@ for K=1:N
     eG_kz(K)=phi(1:end,K)'*uz(1:end,K);
 end
 
-% Probability of rank of mutants and residents
+% Probability of rank of mutants and residents.
+
+% Can take into account the influence of the mutant on the
+% resident's rank. Closer to true value but inconsistent with 
+% assumptions of AD
+% [Pk_yy,Pk_yz] = probrank(y,z,p.v,N-1); 
+
+% Or we can assume that the presence of the mutant does not
+% influence the rank probability of the resident
 [Pk_yy,Pk_yz] = probrank(y,z,p.v,N-1);
+[Pk_yy] = probrank(y,y,p.v,N-1);
 
 % Calc e_G's, proability of mutants and residents acquiring
 % a good territory

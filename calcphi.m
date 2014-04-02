@@ -27,6 +27,8 @@ function phi = calcphi(N,y,p)
 od = oddsratio(p,y);
 phi = zeros(p.TG,N); 
 
+% Below works on the number of good territories left, then
+% the answer is flipped.
 % If the number of birds already settled exceeds the total number
 % of territories, the probability of the kth bird finding any territory is 0
 % hence we don't need to do the calcs for N > p.TG+p.TB

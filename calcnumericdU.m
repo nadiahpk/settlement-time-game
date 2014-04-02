@@ -1,6 +1,6 @@
-function res = dW(y,p)
+function res = calcnumericdU(y,p)
 
-% -- res = dW(y,p)
+% -- res = calcnumericdU(y,p)
 %
 % The purpose of this function is to calculate the selection
 % gradient numerically. It can be used with solveEss.m
@@ -27,18 +27,12 @@ else
 
     sA = p.sA; sB = p.sB; sG = p.sG; R = p.R;
 
-    Wr1 = sA + R*(eGr1*sG + eBr1*sB);
-    Wr2 = sA + R*(eGr2*sG + eBr2*sB);
+    %Wr1 = sA + R*(eGr1*sG + eBr1*sB);
+    %Wr2 = sA + R*(eGr2*sG + eBr2*sB);
 
     Wm1 = sA + R*(eGm1*sG + eBm1*sB);
     Wm2 = sA + R*(eGm2*sG + eBm2*sB);
 
-    del1 = Wm1-Wr1;
-    del2 = Wm2-Wr2;
-
-    if N > 1
-        res = (del2-del1)/del; % A bit strange but has better robustness
-    else
-        res = (Wm2-Wm1)/del; % Because Wr equal
-    end
+    % literal deriv definition
+    res = (Wm2-Wm1)/del;
 end

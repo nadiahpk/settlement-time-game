@@ -1,6 +1,7 @@
-function [y,fval] = solveEss(y0,p);
+function [y,fval] = solveEss(y0,p,flagAnalytic);
 
 % -- [y,fval] = solveEss(y0,p);
+% -- [y,fval] = solveEss(y0,p,flagAnalytic);
 %
 % The purpose of this function is to find the evolutionarily
 % singular settling time strategy. It does this numerically
@@ -11,6 +12,9 @@ function [y,fval] = solveEss(y0,p);
 % y0: An initial y* estimate
 %
 % p: A dictionary of parameter values
+%
+% flagAnalytic: Set to 1 if you want to use the analytic
+% definition of the fitness gradient
 % 
 % OUTPUTS
 %
@@ -18,6 +22,14 @@ function [y,fval] = solveEss(y0,p);
 %
 % fval: Residual from fsolve
 
-f = @(v) dW(v,p);
+if nargin < 3
+    flagAnalytic = 0;
+end
+
+if flagAnalytic == 1
+    f = @(v) calcanalyticdU(v,p);
+else
+    f = @(v) calcnumericdU(v,p);
+end
 [y,fval] = fsolve(f,y0);
 
