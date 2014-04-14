@@ -25,7 +25,7 @@ A = (p.fG-p.fB)*((p.lambdaB-p.lambdaG)/N)*aa;
 bb = sum(phi(:,N).*u(:,N))-u(1,1);
 B = ((p.fG-p.fB)/p.v)*bb;
 if N > p.TB+p.TG
-    C = -p.fB/v;
+    C = -p.fB/p.v;
 else
     C = 0;
 end

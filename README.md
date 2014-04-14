@@ -1,6 +1,6 @@
 # Reference
 
-Schmidt, K.A., Johansson, J. Kristensen, N.P. and Jonzen, N.  Consequences of information use in breeding habitat selection on the evolution of settlement time. Paper in preparation.
+Schmidt K.A., Johansson J., Kristensen N.P., Massol F., and Jonzen, N.  Consequences of information use in breeding habitat selection on the evolution of settlement time. Paper in preparation.
 
 
 # Quick Start
@@ -17,11 +17,11 @@ If you don't have git, just download and unpack the latest zip file:
 In Octave
 
     > params;
-    > [y,fval]=solveEss(.5,p)
+    > [y,fval]=solveEss(.9,p)
 
 Should give the result
 
-    y =  0.58899
+    y =  0.82902
 
 
 # The Wallenius solver

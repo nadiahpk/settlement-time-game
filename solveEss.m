@@ -23,7 +23,7 @@ function [y,fval] = solveEss(y0,p,flagAnalytic);
 % fval: Residual from fsolve
 
 if nargin < 3
-    flagAnalytic = 0;
+    flagAnalytic = 1;
 end
 
 if flagAnalytic == 1
