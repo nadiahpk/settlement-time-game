@@ -1,6 +1,6 @@
 # Reference
 
-Schmidt K.A., Johansson J., Kristensen N.P., Massol F., and Jonzen, N.  Consequences of information use in breeding habitat selection on the evolution of settlement time. Paper in preparation.
+Schmidt K.A., Johansson J., Kristensen N.P., Massol F., and Jonzen, N.  (2014) Consequences of information use in breeding habitat selection on the evolution of settlement time. Oikos In press.
 
 
 # Quick Start
