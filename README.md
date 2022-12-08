@@ -29,7 +29,7 @@ Should give the result
 # The Wallenius solver
 
 In the subdirectory ```wnhgsolver``` is C++ code for the Wallenius
-distribution (from [Agner Fog](http://www.anger.org)) and the file
+distribution (from [Agner Fog](http://www.agner.org)) and the file
 ```wnhg8.cpp``` to generate ```wnhg8.oct```. You can create your
 own by running
 
